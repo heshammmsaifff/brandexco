@@ -427,3 +427,272 @@ video[preload="auto"] {
     transform: scale(1.1);
   }
 }
+
+/* الأزرار الثابتة في أسفل الصفحة */
+.fixed-buttons {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.floating-button-container {
+  position: relative;
+  pointer-events: auto;
+}
+
+.floating-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.floating-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.floating-button:hover::before {
+  transform: translateX(100%);
+}
+
+.floating-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.floating-button:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* زر WhatsApp */
+.whatsapp-button {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+  margin-left: 20px;
+}
+
+.whatsapp-button:hover {
+  background: linear-gradient(135deg, #128c7e, #075e54);
+}
+
+/* زر Contact */
+.contact-button {
+  background: linear-gradient(135deg, #9ecb0e, #7a9e0a);
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.contact-button:hover {
+  background: linear-gradient(135deg, #7a9e0a, #5a7a08);
+  color: white;
+}
+
+/* Tooltips للأزرار */
+.button-tooltip {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.button-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.8);
+}
+
+.floating-button-container:hover .button-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+/* تأثير النبض للأزرار */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15),
+      0 0 0 10px rgba(158, 203, 14, 0.1);
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.floating-button {
+  animation: pulse 2s infinite;
+}
+
+/* تحسين شكل زر تغيير اللغة */
+button[aria-label="Toggle language"] {
+  background: linear-gradient(
+    135deg,
+    rgba(158, 203, 14, 0.1),
+    rgba(122, 158, 10, 0.1)
+  ) !important;
+  border: 2px solid rgba(158, 203, 14, 0.3) !important;
+  border-radius: 12px !important;
+  padding: 8px 16px !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  color: #9ecb0e !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+button[aria-label="Toggle language"]:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(158, 203, 14, 0.2),
+    rgba(122, 158, 10, 0.2)
+  ) !important;
+  border-color: rgba(158, 203, 14, 0.6) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(158, 203, 14, 0.2);
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button[aria-label="Toggle language"]:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(158, 203, 14, 0.15);
+}
+
+/* تحسين شكل زر toggle للموبايل */
+
+/* تحسين للأجهزة المحمولة */
+@media (max-width: 768px) {
+  button[aria-label="Menu"] {
+    background: linear-gradient(
+      135deg,
+      rgba(158, 203, 14, 0.1),
+      rgba(122, 158, 10, 0.1)
+    ) !important;
+    border: 2px solid rgba(158, 203, 14, 0.3) !important;
+    border-radius: 12px !important;
+    width: 44px !important;
+    height: 44px !important;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: #9ecb0e !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  button[aria-label="Menu"]:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(158, 203, 14, 0.2),
+      rgba(122, 158, 10, 0.2)
+    ) !important;
+    border-color: rgba(158, 203, 14, 0.6) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(158, 203, 14, 0.2);
+    color: #ffffff !important;
+  }
+
+  button[aria-label="Menu"]:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(158, 203, 14, 0.15);
+  }
+  .fixed-buttons {
+    bottom: 15px;
+    padding: 0 15px;
+  }
+
+  .floating-button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatsapp-button {
+    margin-left: 10px;
+  }
+
+  .contact-button {
+    margin-right: 10px;
+  }
+
+  .button-tooltip {
+    bottom: 60px;
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+}
+
+/* تحسين للشاشات الصغيرة جداً */
+@media (max-width: 480px) {
+  .fixed-buttons {
+    bottom: 10px;
+    padding: 0 10px;
+  }
+
+  .floating-button {
+    width: 45px;
+    height: 45px;
+  }
+
+  .floating-button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .button-tooltip {
+    bottom: 55px;
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+}

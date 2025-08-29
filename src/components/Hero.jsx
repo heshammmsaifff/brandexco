@@ -124,9 +124,12 @@ function Hero({ labels, isRTL }) {
         {/* Text right */}
         <div className="order-2 animate-in md:text-right text-center md:max-w-none max-w-3xl md:ml-auto">
           <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight text-brand-gray">
-            {labels.title}
+            {labels.companyName}
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-brand-gray">
+          <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-brand-primary">
+            {labels.title}
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-brand-gray/80">
             {labels.subtitle}
           </p>
           <div

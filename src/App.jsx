@@ -17,6 +17,7 @@ import ContactForm from "./components/ContactForm.jsx";
 import AboutUs from "./components/AboutUs.jsx";
 import Footer from "./components/Footer.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import FloatingButtons from "./components/FloatingButtons.jsx";
 
 function HomePage({ lang, t, isRTL }) {
   return (
@@ -198,8 +199,10 @@ function AppContent() {
           contact: "تواصل",
         },
         hero: {
+          companyName: "براندكسو - BRANDEXCO",
           title: "نقود نمو علامتك رقمياً",
-          subtitle: "تسويق رقمي وخدمات برمجية تصنع فرقاً حقيقياً",
+          subtitle:
+            "نحول رؤيتك إلى واقع رقمي متميز من خلال حلول تسويقية وبرمجية مبتكرة",
           ctaPrimary: "احجز استشارة",
           ctaSecondary: "تعرّف علينا",
         },
@@ -230,9 +233,10 @@ function AppContent() {
           contact: "Contact",
         },
         hero: {
+          companyName: "BRANDEXCO",
           title: "We drive your brand's digital growth",
           subtitle:
-            "Digital marketing and software services that make real impact",
+            "Transform your vision into digital excellence through innovative marketing and software solutions",
           ctaPrimary: "Book a Consultation",
           ctaSecondary: "Learn More",
         },
@@ -289,6 +293,7 @@ function AppContent() {
         </Routes>
       </main>
       <Footer lang={lang} />
+      <FloatingButtons />
     </div>
   );
 }

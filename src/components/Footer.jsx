@@ -80,9 +80,23 @@ function Footer({ lang }) {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-6">
-              <span className="inline-block h-8 w-8 rounded bg-brand-primary" />
+              {/* <span className="inline-block h-8 w-8 rounded bg-brand-primary" /> */}
+              <div className="relative">
+                <img
+                  src="/logo-shape.png"
+                  alt="BrandExCo Logo"
+                  className="transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 navbar-logo"
+                  draggable="false"
+                  loading="eager"
+                  decoding="async"
+                />
+                {/* تأثير توهج خفيف */}
+                <div className="absolute inset-0 bg-brand-primary/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 logo-glow" />
+                {/* تأثير إضافي للشعار */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary/0 via-brand-primary/10 to-brand-primary/0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
+              </div>
               <span className="font-extrabold tracking-tight text-brand-gray text-xl">
-                BrandExco
+                BRANDEXCO
               </span>
             </div>
             <p className="text-brand-gray/70 mb-6 leading-relaxed">

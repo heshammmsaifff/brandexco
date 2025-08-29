@@ -72,7 +72,7 @@ function Navbar({ lang, setLang, labels }) {
             <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary/0 via-brand-primary/10 to-brand-primary/0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
           </div>
           <span className="font-extrabold tracking-tight text-brand-gray transition-colors group-hover:text-brand-primary text-lg">
-            BrandExCo
+            BRANDEXCO
           </span>
         </Link>
         <ul className="hidden md:flex items-center gap-12">
