@@ -54,14 +54,44 @@ function ContactForm({ lang }) {
   };
 
   const services = [
-    lang === "ar" ? "تسويق وسائل التواصل الاجتماعي" : "Social Media Marketing",
-    lang === "ar" ? "تحسين محركات البحث" : "Search Engine Optimization",
-    lang === "ar" ? "إعلانات جوجل" : "Google Ads",
-    lang === "ar" ? "التصميم الجرافيكي" : "Graphic Design",
+    lang === "ar" ? "التصميم الإبداعي" : "Creative Design",
+    lang === "ar" ? "حلول الويب" : "Web Solutions",
+    lang === "ar" ? "التسويق الرقمي" : "Digital Marketing",
+    lang === "ar" ? "استراتيجية العلامة التجارية" : "Brand Strategy",
+    lang === "ar" ? "تصميم الجرافيك" : "Graphic Design",
+    lang === "ar" ? "تصميم الويب وتجربة المستخدم" : "Web & UI/UX Design",
     lang === "ar"
-      ? "تطوير مواقع التجارة الإلكترونية"
-      : "E-commerce Website Development",
-    lang === "ar" ? "استشارات تقنية" : "Technical Consultations",
+      ? "تصوير المنتجات والفيديوغرافيك"
+      : "Product Photography & Videography",
+    lang === "ar"
+      ? "تصميم العروض التقديمية الاحترافية"
+      : "Professional Presentation Design",
+    lang === "ar" ? "تصميم وتطوير مواقع الويب" : "Web Design & Development",
+    lang === "ar" ? "تطوير متاجر إلكترونية" : "E-commerce Development",
+    lang === "ar" ? "إدارة وسائل التواصل الاجتماعي" : "Social Media Management",
+    lang === "ar"
+      ? "تسويق المحتوى وإنشاء المدونات"
+      : "Content Marketing & Blogging",
+    lang === "ar"
+      ? "تحسين محركات البحث (SEO)"
+      : "Search Engine Optimization (SEO)",
+    lang === "ar"
+      ? "التسويق عبر محركات البحث"
+      : "Search Engine Marketing (SEM/Google Ads)",
+    lang === "ar" ? "التسويق عبر البريد الإلكتروني" : "Email Marketing",
+    lang === "ar"
+      ? "إعلانات وسائل التواصل الاجتماعي"
+      : "Social Media Advertising",
+    lang === "ar" ? "بناء الهوية البصرية" : "Building Visual Identity",
+    lang === "ar"
+      ? "تحديد صوت العلامة التجارية وشخصيتها"
+      : "Defining Brand Voice and Personality",
+    lang === "ar"
+      ? "دراسة السوق والمنافسين"
+      : "Conducting Market and Competitor Research",
+    lang === "ar"
+      ? "تطوير خطة تسويقية استراتيجية شاملة"
+      : "Developing a Comprehensive Strategic Marketing Plan",
   ];
 
   return (

@@ -199,29 +199,33 @@ function AppContent() {
           contact: "تواصل",
         },
         hero: {
-          companyName: "براندكسو - BRANDEXCO",
+          companyName: "براندكسكو - BRANDEXCO",
           title: "نقود نمو علامتك رقمياً",
           subtitle:
-            "نحول رؤيتك إلى واقع رقمي متميز من خلال حلول تسويقية وبرمجية مبتكرة",
+            "براندكسكو ليست مجرد وكالة تسويق، نحن شركاؤك في رحلة بناء الهوية. نقدم حلولاً تسويقية إبداعية وشاملة مصممة خصيصًا لتحويل رؤيتك إلى واقع ملموس وبناء علامة تجارية قوية تترسخ في أذهان عملائك وتنمو بشكل مستمر.",
           ctaPrimary: "احجز استشارة",
           ctaSecondary: "تعرّف علينا",
         },
         cards: {
           card1: {
-            title: "تسويق رقمي",
-            content: "استراتيجيات تسويقية متقدمة لتعزيز حضورك الرقمي",
+            title: "التصميم الإبداعي",
+            content:
+              "تصميم جرافيك، تصميم الويب وتجربة المستخدم، تصوير المنتجات والفيديوغرافيك، تصميم العروض التقديمية الاحترافية",
           },
           card2: {
-            title: "تطوير البرمجيات",
-            content: "حلول برمجية مخصصة تناسب احتياجات عملك",
+            title: "حلول الويب",
+            content:
+              "تصميم وتطوير مواقع الويب، تطوير متاجر إلكترونية، حلول تقنية متكاملة",
           },
           card3: {
-            title: "تصميم الويب",
-            content: "تصاميم حديثة وجذابة تعكس هوية علامتك التجارية",
+            title: "التسويق الرقمي",
+            content:
+              "إدارة وسائل التواصل الاجتماعي، تسويق المحتوى وإنشاء المدونات، تحسين محركات البحث، إعلانات جوجل",
           },
           card4: {
-            title: "تحسين محركات البحث",
-            content: "تحسين موقعك لظهوره في النتائج الأولى لمحركات البحث",
+            title: "استراتيجية العلامة التجارية",
+            content:
+              "بناء الهوية البصرية، تحديد صوت العلامة التجارية، دراسة السوق والمنافسين، تطوير خطة تسويقية استراتيجية",
           },
         },
       },
@@ -236,30 +240,30 @@ function AppContent() {
           companyName: "BRANDEXCO",
           title: "We drive your brand's digital growth",
           subtitle:
-            "Transform your vision into digital excellence through innovative marketing and software solutions",
+            "BRANDEXCO is more than a marketing agency; we are your partners in identity-building. We provide creative, comprehensive marketing solutions tailored to transform your vision into a tangible reality and build a powerful brand that resonates with your audience and grows consistently.",
           ctaPrimary: "Book a Consultation",
           ctaSecondary: "Learn More",
         },
         cards: {
           card1: {
-            title: "Digital Marketing",
+            title: "Creative Design",
             content:
-              "Advanced marketing strategies to boost your digital presence",
+              "Graphic design, web & UI/UX design, product photography & videography, professional presentation design",
           },
           card2: {
-            title: "Software Development",
+            title: "Web Solutions",
             content:
-              "Custom software solutions tailored to your business needs",
+              "Web design & development, e-commerce development, integrated technical solutions",
           },
           card3: {
-            title: "Web Design",
+            title: "Digital Marketing",
             content:
-              "Modern and attractive designs that reflect your brand identity",
+              "Social media management, content marketing & blogging, SEO, Google Ads",
           },
           card4: {
-            title: "Search Engine Optimization",
+            title: "Brand Strategy",
             content:
-              "Improving your website's visibility in search engine results",
+              "Building visual identity, defining brand voice and personality, market and competitor research, comprehensive strategic marketing plan",
           },
         },
       },

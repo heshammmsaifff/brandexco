@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FiMail, FiSmartphone, FiMapPin } from "react-icons/fi";
 import { initEmailJS, sendEmail } from "../config/emailjs";
+import { FaFacebook, FaInstagram, FaTwitter, FaTiktok } from "react-icons/fa";
 
 function ContactPage({ lang }) {
   const [formData, setFormData] = useState({
@@ -55,14 +56,44 @@ function ContactPage({ lang }) {
   };
 
   const services = [
-    lang === "ar" ? "تسويق وسائل التواصل الاجتماعي" : "Social Media Marketing",
-    lang === "ar" ? "تحسين محركات البحث" : "Search Engine Optimization",
-    lang === "ar" ? "إعلانات جوجل" : "Google Ads",
-    lang === "ar" ? "التصميم الجرافيكي" : "Graphic Design",
+    lang === "ar" ? "التصميم الإبداعي" : "Creative Design",
+    lang === "ar" ? "حلول الويب" : "Web Solutions",
+    lang === "ar" ? "التسويق الرقمي" : "Digital Marketing",
+    lang === "ar" ? "استراتيجية العلامة التجارية" : "Brand Strategy",
+    lang === "ar" ? "تصميم الجرافيك" : "Graphic Design",
+    lang === "ar" ? "تصميم الويب وتجربة المستخدم" : "Web & UI/UX Design",
     lang === "ar"
-      ? "تطوير مواقع التجارة الإلكترونية"
-      : "E-commerce Website Development",
-    lang === "ar" ? "استشارات تقنية" : "Technical Consultations",
+      ? "تصوير المنتجات والفيديوغرافيك"
+      : "Product Photography & Videography",
+    lang === "ar"
+      ? "تصميم العروض التقديمية الاحترافية"
+      : "Professional Presentation Design",
+    lang === "ar" ? "تصميم وتطوير مواقع الويب" : "Web Design & Development",
+    lang === "ar" ? "تطوير متاجر إلكترونية" : "E-commerce Development",
+    lang === "ar" ? "إدارة وسائل التواصل الاجتماعي" : "Social Media Management",
+    lang === "ar"
+      ? "تسويق المحتوى وإنشاء المدونات"
+      : "Content Marketing & Blogging",
+    lang === "ar"
+      ? "تحسين محركات البحث (SEO)"
+      : "Search Engine Optimization (SEO)",
+    lang === "ar"
+      ? "التسويق عبر محركات البحث"
+      : "Search Engine Marketing (SEM/Google Ads)",
+    lang === "ar" ? "التسويق عبر البريد الإلكتروني" : "Email Marketing",
+    lang === "ar"
+      ? "إعلانات وسائل التواصل الاجتماعي"
+      : "Social Media Advertising",
+    lang === "ar" ? "بناء الهوية البصرية" : "Building Visual Identity",
+    lang === "ar"
+      ? "تحديد صوت العلامة التجارية وشخصيتها"
+      : "Defining Brand Voice and Personality",
+    lang === "ar"
+      ? "دراسة السوق والمنافسين"
+      : "Conducting Market and Competitor Research",
+    lang === "ar"
+      ? "تطوير خطة تسويقية استراتيجية شاملة"
+      : "Developing a Comprehensive Strategic Marketing Plan",
   ];
 
   return (
@@ -70,7 +101,7 @@ function ContactPage({ lang }) {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl font-bold text-brand-gray mb-6">
-            {lang === "ar" ? "تواصل معنا" : "Contact Us"}
+            {lang === "ar" ? "تواصل معنا | CONTACT US" : "CONTACT US"}
           </h1>
           <p className="text-brand-gray/80 text-lg">
             {lang === "ar"
@@ -252,38 +283,123 @@ function ContactPage({ lang }) {
           </div>
         </form>
 
-        <div className="mt-16 text-center">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-3xl mb-4">
-                <FiMail className="text-3xl mx-auto" />
+        {/* Contact Information */}
+        <div className="mt-16 grid md:grid-cols-2 gap-8">
+          <div className="bg-brand-black/50 rounded-xl p-8 border border-brand-gray/20">
+            <h3 className="text-2xl font-bold text-brand-gray mb-6">
+              {lang === "ar" ? "معلومات الاتصال" : "Contact Information"}
+            </h3>
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-lg bg-brand-primary/20 flex items-center justify-center flex-shrink-0">
+                  <FiSmartphone className="text-brand-primary text-xl" />
+                </div>
+                <div className={lang === "ar" ? "text-right" : "text-left"}>
+                  <h4 className="font-semibold text-brand-gray mb-1">
+                    {lang === "ar" ? "مصر" : "EGYPT"}
+                  </h4>
+                  <p
+                    className="text-brand-gray/70 font-mono"
+                    style={{ direction: "ltr" }}
+                  >
+                    +20-101-180-308-7
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-brand-gray mb-2">
-                {lang === "ar" ? "البريد الإلكتروني" : "Email"}
-              </h3>
-              <p className="text-brand-gray/70">info@brandexco.com</p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-lg bg-brand-secondary/20 flex items-center justify-center flex-shrink-0">
+                  <FiSmartphone className="text-brand-secondary text-xl" />
+                </div>
+                <div className={lang === "ar" ? "text-right" : "text-left"}>
+                  <h4 className="font-semibold text-brand-gray mb-1">
+                    {lang === "ar"
+                      ? "المملكة العربية السعودية"
+                      : "SAUDI ARABIA"}
+                  </h4>
+                  <p
+                    className="text-brand-gray/70 font-mono"
+                    style={{ direction: "ltr" }}
+                  >
+                    +966-530-986-725
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-lg bg-brand-primary/20 flex items-center justify-center flex-shrink-0">
+                  <FiMail className="text-brand-primary text-xl" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-brand-gray mb-1">
+                    {lang === "ar" ? "البريد الإلكتروني" : "Email"}
+                  </h4>
+                  <p className="text-brand-gray/70">info@brandexco.com</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-lg bg-brand-primary/20 flex items-center justify-center flex-shrink-0">
+                  <FiMapPin className="text-brand-primary text-xl" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-brand-gray mb-1">
+                    {lang === "ar" ? "الموقع الإلكتروني" : "Website"}
+                  </h4>
+                  <p className="text-brand-gray/70">www.brandexco.com</p>
+                </div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl mb-4">
-                <FiSmartphone className="text-3xl mx-auto" />
-              </div>
-              <h3 className="text-xl font-semibold text-brand-gray mb-2">
-                {lang === "ar" ? "الهاتف" : "Phone"}
-              </h3>
-              <p className="text-brand-gray/70">+966 50 123 4567</p>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl mb-4">
-                <FiMapPin className="text-3xl mx-auto" />
-              </div>
-              <h3 className="text-xl font-semibold text-brand-gray mb-2">
-                {lang === "ar" ? "العنوان" : "Address"}
-              </h3>
-              <p className="text-brand-gray/70">
+          </div>
+
+          <div className="bg-brand-black/50 rounded-xl p-8 border border-brand-gray/20">
+            <h3 className="text-2xl font-bold text-brand-gray mb-6">
+              {lang === "ar" ? "وسائل التواصل الاجتماعي" : "Social Media"}
+            </h3>
+            <div className="space-y-4">
+              <p className="text-brand-gray/70 mb-6">
                 {lang === "ar"
-                  ? "الرياض، المملكة العربية السعودية"
-                  : "Riyadh, Saudi Arabia"}
+                  ? "تابعنا على وسائل التواصل الاجتماعي"
+                  : "Follow us on social media"}
               </p>
+              <div className="flex gap-4 justify-center">
+                <a
+                  href="https://www.facebook.com/brandexcoagency"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-lg bg-brand-primary/20 flex items-center justify-center hover:bg-brand-primary hover:text-black transition-colors cursor-pointer"
+                  aria-label="Facebook"
+                >
+                  <FaFacebook className="text-xl" />
+                </a>
+                <a
+                  href="https://www.instagram.com/brandexco.agency/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-lg bg-brand-secondary/20 flex items-center justify-center hover:bg-brand-secondary hover:text-black transition-colors cursor-pointer"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram className="text-xl" />
+                </a>
+                <a
+                  href="https://x.com/brandexcoagency"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-lg bg-brand-green-1/20 flex items-center justify-center hover:bg-brand-green-1 hover:text-black transition-colors cursor-pointer"
+                  aria-label="Twitter/X"
+                >
+                  <FaTwitter className="text-xl" />
+                </a>
+                <a
+                  href="https://www.tiktok.com/@brandexco"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-lg bg-brand-primary/20 flex items-center justify-center hover:bg-brand-primary hover:text-black transition-colors cursor-pointer"
+                  aria-label="TikTok"
+                >
+                  <FaTiktok className="text-xl" />
+                </a>
+              </div>
+              <div className="text-center mt-6">
+                <h4 className="font-bold text-brand-gray text-xl">BRANDEXCO</h4>
+              </div>
             </div>
           </div>
         </div>

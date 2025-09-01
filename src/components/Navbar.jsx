@@ -9,7 +9,7 @@ function Navbar({ lang, setLang, labels }) {
     { key: "home", label: labels.home, path: "/" },
     {
       key: "about",
-      label: lang === "ar" ? "من نحن" : "About",
+      label: lang === "ar" ? "عن الشركة" : "About Us",
       path: "/#about",
     },
     { key: "services", label: labels.services, path: "/services" },

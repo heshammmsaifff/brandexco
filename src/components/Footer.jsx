@@ -9,6 +9,7 @@ import {
   FiSmartphone,
   FiMapPin,
 } from "react-icons/fi";
+import { FaTiktok } from "react-icons/fa";
 
 function Footer({ lang }) {
   const currentYear = new Date().getFullYear();
@@ -16,25 +17,27 @@ function Footer({ lang }) {
   const footerLinks = {
     services: [
       {
-        name: lang === "ar" ? "تسويق رقمي" : "Digital Marketing",
+        name: lang === "ar" ? "التصميم الإبداعي" : "Creative Design",
         path: "/services",
       },
       {
-        name: lang === "ar" ? "تطوير البرمجيات" : "Software Development",
+        name: lang === "ar" ? "حلول الويب" : "Web Solutions",
         path: "/services",
       },
-      { name: lang === "ar" ? "تصميم الويب" : "Web Design", path: "/services" },
       {
-        name:
-          lang === "ar" ? "تطوير تطبيقات الموبايل" : "Mobile App Development",
+        name: lang === "ar" ? "التسويق الرقمي" : "Digital Marketing",
+        path: "/services",
+      },
+      {
+        name: lang === "ar" ? "استراتيجية العلامة التجارية" : "Brand Strategy",
         path: "/services",
       },
     ],
     company: [
       { name: lang === "ar" ? "من نحن" : "About Us", path: "/#about" },
-      { name: lang === "ar" ? "فريق العمل" : "Our Team", path: "/" },
-      { name: lang === "ar" ? "الأعمال" : "Portfolio", path: "/" },
-      { name: lang === "ar" ? "الوظائف" : "Careers", path: "/" },
+      { name: lang === "ar" ? "رؤيتنا" : "Our Vision", path: "/#about" },
+      { name: lang === "ar" ? "مهمتنا" : "Our Mission", path: "/#about" },
+      { name: lang === "ar" ? "قيمنا" : "Our Values", path: "/#about" },
     ],
     support: [
       { name: lang === "ar" ? "المساعدة" : "Help Center", path: "/contact" },
@@ -48,10 +51,26 @@ function Footer({ lang }) {
   };
 
   const socialLinks = [
-    { name: "Twitter", icon: <FiTwitter />, url: "#" },
-    { name: "LinkedIn", icon: <FiLinkedin />, url: "#" },
-    { name: "Instagram", icon: <FiInstagram />, url: "#" },
-    { name: "Facebook", icon: <FiFacebook />, url: "#" },
+    {
+      name: "Facebook",
+      icon: <FiFacebook />,
+      url: "https://www.facebook.com/brandexcoagency",
+    },
+    {
+      name: "Instagram",
+      icon: <FiInstagram />,
+      url: "https://www.instagram.com/brandexco.agency/",
+    },
+    {
+      name: "Twitter",
+      icon: <FiTwitter />,
+      url: "https://x.com/brandexcoagency",
+    },
+    {
+      name: "TikTok",
+      icon: <FaTiktok />,
+      url: "https://www.tiktok.com/@brandexco",
+    },
   ];
 
   const handleLinkClick = (path) => {
@@ -80,7 +99,6 @@ function Footer({ lang }) {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-6">
-              {/* <span className="inline-block h-8 w-8 rounded bg-brand-primary" /> */}
               <div className="relative">
                 <img
                   src="/logo-shape.png"
@@ -179,72 +197,76 @@ function Footer({ lang }) {
           </div>
         </div>
 
-        {/* Contact Info */}
-        <div className="border-t border-brand-gray/20 pt-8 mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Contact Information */}
+        <div className="lg:col-span-2">
+          <h3 className="text-lg font-semibold text-brand-gray mb-6">
+            {lang === "ar" ? "معلومات الاتصال" : "Contact Information"}
+          </h3>
+          <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-brand-primary/20 flex items-center justify-center">
-                <FiMail className="text-brand-primary" />
-              </div>
-              <div>
-                <p className="text-sm text-brand-gray/50">
-                  {lang === "ar" ? "البريد الإلكتروني" : "Email"}
+              <FiSmartphone className="text-brand-primary text-lg" />
+              <div className={lang === "ar" ? "text-right" : "text-left"}>
+                <p className="text-brand-gray/70 text-sm">
+                  {lang === "ar" ? "مصر" : "EGYPT"}
                 </p>
-                <p className="text-brand-gray">info@brandexco.com</p>
+                <p
+                  className="text-brand-gray font-mono"
+                  style={{ direction: "ltr" }}
+                >
+                  +20-101-180-308-7
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-brand-secondary/20 flex items-center justify-center">
-                <FiSmartphone className="text-brand-secondary" />
-              </div>
-              <div>
-                <p className="text-sm text-brand-gray/50">
-                  {lang === "ar" ? "الهاتف" : "Phone"}
+              <FiSmartphone className="text-brand-secondary text-lg" />
+              <div className={lang === "ar" ? "text-right" : "text-left"}>
+                <p className="text-brand-gray/70 text-sm">
+                  {lang === "ar" ? "المملكة العربية السعودية" : "SAUDI ARABIA"}
                 </p>
-                <p className="text-brand-gray">+966 50 123 4567</p>
+                <p
+                  className="text-brand-gray font-mono"
+                  style={{ direction: "ltr" }}
+                >
+                  +966-530-986-725
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-brand-green-1/20 flex items-center justify-center">
-                <FiMapPin className="text-brand-green-1" />
-              </div>
-              <div>
-                <p className="text-sm text-brand-gray/50">
-                  {lang === "ar" ? "العنوان" : "Address"}
-                </p>
-                <p className="text-brand-gray">
-                  {lang === "ar"
-                    ? "الرياض، المملكة العربية السعودية"
-                    : "Riyadh, Saudi Arabia"}
-                </p>
-              </div>
+              <FiMail className="text-brand-primary text-lg" />
+              <p className="text-brand-gray">info@brandexco.com</p>
+            </div>
+            <div className="flex items-center gap-3">
+              <FiMapPin className="text-brand-primary text-lg" />
+              <p className="text-brand-gray">www.brandexco.com</p>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-brand-gray/20 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-brand-gray/70 text-sm">
-              © {currentYear} BrandExco.{" "}
-              {lang === "ar" ? "جميع الحقوق محفوظة" : "All rights reserved"}.
-            </p>
-            <div className="flex items-center gap-6 text-sm">
-              <Link
-                to="/"
-                onClick={() => handleLinkClick("/")}
-                className="text-brand-gray/70 hover:text-brand-primary transition-colors"
-              >
-                {lang === "ar" ? "سياسة الخصوصية" : "Privacy Policy"}
-              </Link>
-              <Link
-                to="/"
-                onClick={() => handleLinkClick("/")}
-                className="text-brand-gray/70 hover:text-brand-primary transition-colors"
-              >
-                {lang === "ar" ? "شروط الاستخدام" : "Terms of Service"}
-              </Link>
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 border-t border-brand-gray/20">
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded bg-brand-primary flex items-center justify-center">
+              <span className="text-black font-bold text-sm">B</span>
             </div>
+            <span className="text-brand-gray/70 text-sm">
+              BRANDEXCO © {currentYear} COPYRIGHT. ALL RIGHTS RESERVED.
+            </span>
+          </div>
+          <div className="flex items-center gap-6 text-sm">
+            <Link
+              to="/"
+              onClick={() => handleLinkClick("/")}
+              className="text-brand-gray/70 hover:text-brand-primary transition-colors"
+            >
+              {lang === "ar" ? "سياسة الخصوصية" : "Privacy Policy"}
+            </Link>
+            <Link
+              to="/"
+              onClick={() => handleLinkClick("/")}
+              className="text-brand-gray/70 hover:text-brand-primary transition-colors"
+            >
+              {lang === "ar" ? "شروط الاستخدام" : "Terms of Service"}
+            </Link>
           </div>
         </div>
       </div>

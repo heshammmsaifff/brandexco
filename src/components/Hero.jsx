@@ -90,18 +90,26 @@ function Hero({ labels, isRTL }) {
                 preload="auto"
                 style={{ objectFit: "cover" }}
                 onLoadStart={() => setVideoLoaded(false)}
-                poster="/hero.gif"
                 controls={false}
                 disablePictureInPicture
                 disableRemotePlayback
               />
             ) : (
-              <img
-                src="/hero.gif"
-                alt="Content Marketing Services"
-                className="w-full h-auto rounded-xl shadow-2xl"
-                fallback="true"
-              />
+              <div className="w-full h-80 bg-gradient-to-br from-brand-primary/20 via-brand-secondary/20 to-brand-green-1/20 rounded-xl shadow-2xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-24 h-24 rounded-full bg-brand-primary/30 flex items-center justify-center mx-auto mb-4">
+                    <span className="text-4xl font-bold text-brand-primary">
+                      B
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-brand-gray">
+                    {labels.companyName}
+                  </h3>
+                  <p className="text-brand-gray/70 text-sm mt-2">
+                    {labels.subtitle}
+                  </p>
+                </div>
+              </div>
             )}
 
             {/* Loading indicator */}
@@ -129,7 +137,7 @@ function Hero({ labels, isRTL }) {
           <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-brand-primary">
             {labels.title}
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-brand-gray/80">
+          <p className="mt-4 text-base sm:text-lg text-brand-gray/80 leading-relaxed">
             {labels.subtitle}
           </p>
           <div
