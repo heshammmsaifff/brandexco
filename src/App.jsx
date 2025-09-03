@@ -18,10 +18,36 @@ import AboutUs from "./components/AboutUs.jsx";
 import Footer from "./components/Footer.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import FloatingButtons from "./components/FloatingButtons.jsx";
+import SEOWrapper from "./components/SEOWrapper.jsx";
+import Breadcrumbs from "./components/Breadcrumbs.jsx";
 
 function HomePage({ lang, t, isRTL }) {
   return (
     <>
+      <SEOWrapper
+        title={
+          lang === "ar"
+            ? "BrandExCo - خدمات التسويق الرقمي وتطوير المواقع الإلكترونية | السعودية"
+            : "BrandExCo - Digital Marketing & Web Development Services | Saudi Arabia"
+        }
+        description={
+          lang === "ar"
+            ? "BrandExCo - وكالة تسويق رقمي متخصصة في السعودية. نقدم خدمات SEO، التسويق عبر وسائل التواصل الاجتماعي، تطوير المواقع الإلكترونية، وإدارة العلامات التجارية. نساعد الشركات على النمو عبر الإنترنت."
+            : "BrandExCo - Professional digital marketing agency in Saudi Arabia. We provide SEO, social media marketing, web development, and branding services. We help businesses grow online."
+        }
+        keywords={
+          lang === "ar"
+            ? "تسويق رقمي, تطوير مواقع, SEO, تسويق اجتماعي, تصميم مواقع, براندكسكو, السعودية, الرياض, جدة, الدمام"
+            : "digital marketing, web development, SEO, social media marketing, web design, brandexco, saudi arabia, riyadh, jeddah, dammam"
+        }
+        url="https://brandexco.com/"
+        image="https://brandexco.com/og-image.jpg"
+        schemaType="website"
+        schemaData={{
+          name: "BrandExCo",
+          url: "https://brandexco.com",
+        }}
+      />
       <Hero labels={t.hero} isRTL={isRTL} />
 
       {/* CardSwap Section */}

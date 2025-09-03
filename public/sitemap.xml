@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- الصفحة الرئيسية -->
+  <url>
+    <loc>https://brandexco.com/</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://brandexco.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://brandexco.com/en" />
+  </url>
+  
+  <!-- صفحة الخدمات -->
+  <url>
+    <loc>https://brandexco.com/services</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://brandexco.com/services" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://brandexco.com/en/services" />
+  </url>
+  
+  <!-- صفحة من نحن -->
+  <url>
+    <loc>https://brandexco.com/about</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://brandexco.com/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://brandexco.com/en/about" />
+  </url>
+  
+  <!-- صفحة التواصل -->
+  <url>
+    <loc>https://brandexco.com/contact</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://brandexco.com/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://brandexco.com/en/contact" />
+  </url>
+  
+  <!-- صفحة SEO -->
+  <url>
+    <loc>https://brandexco.com/services/seo</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://brandexco.com/services/seo" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://brandexco.com/en/services/seo" />
+  </url>
+  
+  <!-- صفحة التسويق الاجتماعي -->
+  <url>
+    <loc>https://brandexco.com/services/social-media</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://brandexco.com/services/social-media" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://brandexco.com/en/services/social-media" />
+  </url>
+  
+  <!-- صفحة تطوير المواقع -->
+  <url>
+    <loc>https://brandexco.com/services/web-development</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://brandexco.com/services/web-development" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://brandexco.com/en/services/web-development" />
+  </url>
+  
+  <!-- صفحة تصميم المواقع -->
+  <url>
+    <loc>https://brandexco.com/services/web-design</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://brandexco.com/services/web-design" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://brandexco.com/en/services/web-design" />
+  </url>
+  
+  <!-- صفحة إدارة العلامات التجارية -->
+  <url>
+    <loc>https://brandexco.com/services/branding</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://brandexco.com/services/branding" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://brandexco.com/en/services/branding" />
+  </url>
+  
+</urlset>
