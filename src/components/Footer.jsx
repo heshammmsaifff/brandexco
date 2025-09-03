@@ -239,7 +239,11 @@ function Footer({ lang }) {
             <div className="flex items-center gap-3">
               <FiMapPin className="text-brand-primary text-lg" />
               <p className="text-brand-gray">
-                الرياض, المملكة العربية السعودية <br /> القاهرة, مصر
+                {lang === "ar"
+                  ? "الرياض, المملكة العربية السعودية"
+                  : "Riyadh - Saudi Arabia"}
+                <br />
+                {lang === "ar" ? "القاهرة, مصر" : "Cairo - Egypt"}
               </p>
             </div>
           </div>

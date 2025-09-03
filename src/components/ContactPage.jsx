@@ -291,22 +291,6 @@ function ContactPage({ lang }) {
             </h3>
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg bg-brand-primary/20 flex items-center justify-center flex-shrink-0">
-                  <FiSmartphone className="text-brand-primary text-xl" />
-                </div>
-                <div className={lang === "ar" ? "text-right" : "text-left"}>
-                  <h4 className="font-semibold text-brand-gray mb-1">
-                    {lang === "ar" ? "مصر" : "EGYPT"}
-                  </h4>
-                  <p
-                    className="text-brand-gray/70 font-mono"
-                    style={{ direction: "ltr" }}
-                  >
-                    +20-101-180-308-7
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-lg bg-brand-secondary/20 flex items-center justify-center flex-shrink-0">
                   <FiSmartphone className="text-brand-secondary text-xl" />
                 </div>
@@ -321,6 +305,22 @@ function ContactPage({ lang }) {
                     style={{ direction: "ltr" }}
                   >
                     +966-530-986-725
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-lg bg-brand-primary/20 flex items-center justify-center flex-shrink-0">
+                  <FiSmartphone className="text-brand-primary text-xl" />
+                </div>
+                <div className={lang === "ar" ? "text-right" : "text-left"}>
+                  <h4 className="font-semibold text-brand-gray mb-1">
+                    {lang === "ar" ? "مصر" : "EGYPT"}
+                  </h4>
+                  <p
+                    className="text-brand-gray/70 font-mono"
+                    style={{ direction: "ltr" }}
+                  >
+                    +20-101-180-308-7
                   </p>
                 </div>
               </div>
@@ -341,9 +341,15 @@ function ContactPage({ lang }) {
                 </div>
                 <div>
                   <h4 className="font-semibold text-brand-gray mb-1">
-                    {lang === "ar" ? "الموقع الإلكتروني" : "Website"}
+                    {lang === "ar" ? "الموقع" : "location"}
                   </h4>
-                  <p className="text-brand-gray/70">www.brandexco.com</p>
+                  <p className="text-brand-gray/70">
+                    {lang === "ar"
+                      ? "الرياض, المملكة العربية السعودية"
+                      : "Riyadh - Saudi Arabia"}
+                    <br />
+                    {lang === "ar" ? "القاهرة, مصر" : "Cairo - Egypt"}
+                  </p>
                 </div>
               </div>
             </div>
