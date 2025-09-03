@@ -81,7 +81,7 @@ function HomePage({ lang, t, isRTL }) {
 
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-brand-green-1/20 flex items-center justify-center flex-shrink-0">
-                    <FiTarget className="text-brand-green-1 text-xl" />
+                    <FiTarget className="text-brand-secondary text-xl" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-brand-gray mb-2">
