@@ -1,5 +1,4 @@
-import React from "react";
-import { Helmet } from "react-helmet-async";
+import React, { useEffect } from "react";
 
 const SchemaMarkup = ({ type, data }) => {
   const getSchemaData = () => {
@@ -92,15 +91,36 @@ const SchemaMarkup = ({ type, data }) => {
     }
   };
 
-  const schemaData = getSchemaData();
+  useEffect(() => {
+    const schemaData = getSchemaData();
 
-  if (!schemaData) return null;
+    if (schemaData) {
+      // إزالة أي structured data سابق
+      const existingScript = document.querySelector(
+        "script[data-schema-markup]"
+      );
+      if (existingScript) {
+        existingScript.remove();
+      }
 
-  return (
-    <Helmet>
-      <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
-    </Helmet>
-  );
+      // إضافة structured data جديد
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.setAttribute("data-schema-markup", "true");
+      script.textContent = JSON.stringify(schemaData);
+      document.head.appendChild(script);
+
+      // تنظيف عند unmount
+      return () => {
+        const script = document.querySelector("script[data-schema-markup]");
+        if (script) {
+          script.remove();
+        }
+      };
+    }
+  }, [type, data]);
+
+  return null; // لا نعيد أي JSX
 };
 
 export default SchemaMarkup;
