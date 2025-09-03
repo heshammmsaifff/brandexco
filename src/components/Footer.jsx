@@ -204,20 +204,6 @@ function Footer({ lang }) {
           </h3>
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <FiSmartphone className="text-brand-primary text-lg" />
-              <div className={lang === "ar" ? "text-right" : "text-left"}>
-                <p className="text-brand-gray/70 text-sm">
-                  {lang === "ar" ? "مصر" : "EGYPT"}
-                </p>
-                <p
-                  className="text-brand-gray font-mono"
-                  style={{ direction: "ltr" }}
-                >
-                  +20-101-180-308-7
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
               <FiSmartphone className="text-brand-secondary text-lg" />
               <div className={lang === "ar" ? "text-right" : "text-left"}>
                 <p className="text-brand-gray/70 text-sm">
@@ -232,12 +218,29 @@ function Footer({ lang }) {
               </div>
             </div>
             <div className="flex items-center gap-3">
+              <FiSmartphone className="text-brand-primary text-lg" />
+              <div className={lang === "ar" ? "text-right" : "text-left"}>
+                <p className="text-brand-gray/70 text-sm">
+                  {lang === "ar" ? "مصر" : "EGYPT"}
+                </p>
+                <p
+                  className="text-brand-gray font-mono"
+                  style={{ direction: "ltr" }}
+                >
+                  +20-101-180-308-7
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
               <FiMail className="text-brand-primary text-lg" />
               <p className="text-brand-gray">info@brandexco.com</p>
             </div>
             <div className="flex items-center gap-3">
               <FiMapPin className="text-brand-primary text-lg" />
-              <p className="text-brand-gray">www.brandexco.com</p>
+              <p className="text-brand-gray">
+                الرياض, المملكة العربية السعودية <br /> القاهرة, مصر
+              </p>
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const FloatingButtons = () => {
   const handleWhatsAppClick = () => {
-    const phoneNumber = "+201092141964";
+    const phoneNumber = "+966530986725";
     const message = "مرحباً! أريد الاستفسار عن خدماتكم";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
