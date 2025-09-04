@@ -145,7 +145,17 @@ function HomePage({ lang, t, isRTL }) {
                   width={380}
                   height={340}
                 >
-                  <Card className="bg-brand-black/90 border-brand-gray/30 text-brand-gray p-6 sm:p-8">
+                  <Card
+                    className="bg-brand-black/90 border-brand-gray/30 text-brand-gray p-6 sm:p-8"
+                    style={{
+                      backgroundImage: "url(/creative-design.jpg)",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                      backgroundColor: "rgba(0, 0, 0, 0.4)",
+                      backgroundBlendMode: "overlay",
+                    }}
+                  >
                     <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-brand-primary">
                       {t.cards.card1.title}
                     </h3>
@@ -153,7 +163,17 @@ function HomePage({ lang, t, isRTL }) {
                       {t.cards.card1.content}
                     </p>
                   </Card>
-                  <Card className="bg-brand-black/90 border-brand-gray/30 text-brand-gray p-6 sm:p-8">
+                  <Card
+                    className="bg-brand-black/90 border-brand-gray/30 text-brand-gray p-6 sm:p-8"
+                    style={{
+                      backgroundImage: "url(/web-solutions.jpg)",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                      backgroundColor: "rgba(0, 0, 0, 0.4)",
+                      backgroundBlendMode: "overlay",
+                    }}
+                  >
                     <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-brand-primary">
                       {t.cards.card2.title}
                     </h3>
@@ -161,7 +181,17 @@ function HomePage({ lang, t, isRTL }) {
                       {t.cards.card2.content}
                     </p>
                   </Card>
-                  <Card className="bg-brand-black/90 border-brand-gray/30 text-brand-gray p-6 sm:p-8">
+                  <Card
+                    className="bg-brand-black/90 border-brand-gray/30 text-brand-gray p-6 sm:p-8"
+                    style={{
+                      backgroundImage: "url(/digital-marketing.jpg)",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                      backgroundColor: "rgba(0, 0, 0, 0.4)",
+                      backgroundBlendMode: "overlay",
+                    }}
+                  >
                     <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-brand-primary">
                       {t.cards.card3.title}
                     </h3>
@@ -169,7 +199,17 @@ function HomePage({ lang, t, isRTL }) {
                       {t.cards.card3.content}
                     </p>
                   </Card>
-                  <Card className="bg-brand-black/90 border-brand-gray/30 text-brand-gray p-6 sm:p-8">
+                  <Card
+                    className="bg-brand-black/90 border-brand-gray/30 text-brand-gray p-6 sm:p-8"
+                    style={{
+                      backgroundImage: "url(brand-strategy.jpg)",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                      backgroundColor: "rgba(0, 0, 0, 0.4)",
+                      backgroundBlendMode: "overlay",
+                    }}
+                  >
                     <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-brand-primary">
                       {t.cards.card4.title}
                     </h3>

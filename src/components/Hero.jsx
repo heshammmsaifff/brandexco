@@ -1,11 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Squares from "./Squares.jsx";
 
 function Hero({ labels, isRTL }) {
-  const videoRef = useRef(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const [videoError, setVideoError] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const scrollToAbout = () => {
     const aboutSection = document.getElementById("about");
@@ -13,49 +12,6 @@ function Hero({ labels, isRTL }) {
       aboutSection.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  // إضافة مستمع لحدث انتهاء الفيديو
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      const handleVideoEnd = () => {
-        // إيقاف الفيديو على آخر إطار
-        video.pause();
-        // إخفاء عناصر التحكم
-        video.controls = false;
-        // إضافة كلاس للفيديو الثابت
-        video.classList.add("video-paused");
-      };
-
-      const handleVideoLoad = () => {
-        setVideoLoaded(true);
-        // تحسين جودة الفيديو
-        video.playbackRate = 1.0;
-      };
-
-      const handleVideoError = () => {
-        setVideoError(true);
-        console.warn("Video failed to load, falling back to image");
-      };
-
-      // إضافة مستمع لحدث التحميل
-      const handleCanPlay = () => {
-        setVideoLoaded(true);
-      };
-
-      video.addEventListener("ended", handleVideoEnd);
-      video.addEventListener("loadeddata", handleVideoLoad);
-      video.addEventListener("canplay", handleCanPlay);
-      video.addEventListener("error", handleVideoError);
-
-      return () => {
-        video.removeEventListener("ended", handleVideoEnd);
-        video.removeEventListener("loadeddata", handleVideoLoad);
-        video.removeEventListener("canplay", handleCanPlay);
-        video.removeEventListener("error", handleVideoError);
-      };
-    }
-  }, []);
 
   return (
     <section id="home" className="relative overflow-hidden min-h-[600px]">
@@ -72,27 +28,19 @@ function Hero({ labels, isRTL }) {
         />
       </div>
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 grid md:grid-cols-2 items-center gap-10">
-        {/* Video left */}
+        {/* Image left */}
         <div className="order-1">
           <div className="relative">
-            {!videoError ? (
-              <video
-                ref={videoRef}
-                src="/hero.mp4"
+            {!imageError ? (
+              <img
+                src="/B.gif"
                 alt="Content Marketing Services"
                 className={`w-full h-auto rounded-xl shadow-2xl transition-opacity duration-500 ${
-                  videoLoaded ? "opacity-100" : "opacity-0"
+                  imageLoaded ? "opacity-100" : "opacity-0"
                 }`}
-                autoPlay
-                muted
-                loop={false}
-                playsInline
-                preload="auto"
                 style={{ objectFit: "cover" }}
-                onLoadStart={() => setVideoLoaded(false)}
-                controls={false}
-                disablePictureInPicture
-                disableRemotePlayback
+                onLoad={() => setImageLoaded(true)}
+                onError={() => setImageError(true)}
               />
             ) : (
               <div className="w-full h-80 bg-gradient-to-br from-brand-primary/20 via-brand-secondary/20 to-brand-green-1/20 rounded-xl shadow-2xl flex items-center justify-center">
@@ -113,7 +61,7 @@ function Hero({ labels, isRTL }) {
             )}
 
             {/* Loading indicator */}
-            {!videoLoaded && !videoError && (
+            {!imageLoaded && !imageError && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-200 rounded-xl">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary"></div>
               </div>
