@@ -98,7 +98,7 @@ function Footer({ lang }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex items-center mb-6">
               <div className="relative">
                 <img
                   src="/logo-shape.png"

@@ -56,7 +56,7 @@ function Navbar({ lang, setLang, labels }) {
       }`}
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3 group">
+        <Link to="/" className="flex items-center group">
           <div className="relative">
             <img
               src="/logo-shape.png"
