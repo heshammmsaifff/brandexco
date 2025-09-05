@@ -2,14 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   FiTwitter,
-  FiLinkedin,
   FiInstagram,
   FiFacebook,
   FiMail,
   FiSmartphone,
   FiMapPin,
 } from "react-icons/fi";
-import { FaTiktok } from "react-icons/fa";
+import { FaTiktok, FaSnapchatGhost } from "react-icons/fa";
 
 function Footer({ lang }) {
   const currentYear = new Date().getFullYear();
@@ -65,6 +64,11 @@ function Footer({ lang }) {
       name: "Twitter",
       icon: <FiTwitter />,
       url: "https://x.com/brandexcoagency",
+    },
+    {
+      name: "Snapchat",
+      icon: <FaSnapchatGhost />,
+      url: "https://www.snapchat.com/@brandexco?share_id=icCg9DkjGnI&locale=ar-EG",
     },
     {
       name: "TikTok",
@@ -242,7 +246,11 @@ function Footer({ lang }) {
                 {lang === "ar"
                   ? "الرياض, المملكة العربية السعودية"
                   : "Riyadh - Saudi Arabia"}
-                <br />
+              </p>
+            </div>
+            <div className="flex items-center gap-3">
+              <FiMapPin className="text-brand-primary text-lg" />
+              <p className="text-brand-gray">
                 {lang === "ar" ? "القاهرة, مصر" : "Cairo - Egypt"}
               </p>
             </div>

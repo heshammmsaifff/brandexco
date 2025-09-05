@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { FiMail, FiSmartphone, FiMapPin } from "react-icons/fi";
 import { initEmailJS, sendEmail } from "../config/emailjs";
-import { FaFacebook, FaInstagram, FaTwitter, FaTiktok } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaTwitter,
+  FaTiktok,
+  FaSnapchatGhost,
+} from "react-icons/fa";
 import SEOWrapper from "./SEOWrapper.jsx";
 import Breadcrumbs from "./Breadcrumbs.jsx";
 
@@ -130,7 +136,7 @@ function ContactPage({ lang }) {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-4xl sm:text-5xl font-bold text-brand-gray mb-6">
-              {lang === "ar" ? "تواصل معنا | CONTACT US" : "CONTACT US"}
+              {lang === "ar" ? "تواصل معنا" : "CONTACT US"}
             </h1>
             <p className="text-brand-gray/80 text-lg">
               {lang === "ar"
@@ -365,19 +371,37 @@ function ContactPage({ lang }) {
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-brand-secondary/20 flex items-center justify-center flex-shrink-0">
+                    <FiMapPin className="text-brand-secondary text-xl" />
+                  </div>
+                  <div className={lang === "ar" ? "text-right" : "text-left"}>
+                    <h4 className="font-semibold text-brand-gray mb-1">
+                      {lang === "ar"
+                        ? "المملكة العربية السعودية"
+                        : "SAUDI ARABIA"}
+                    </h4>
+                    <p
+                      className="text-brand-gray/70"
+                      style={{ direction: "ltr" }}
+                    >
+                      {lang === "ar" ? "الرياض" : "Riyadh"}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-lg bg-brand-primary/20 flex items-center justify-center flex-shrink-0">
                     <FiMapPin className="text-brand-primary text-xl" />
                   </div>
-                  <div>
+                  <div className={lang === "ar" ? "text-right" : "text-left"}>
                     <h4 className="font-semibold text-brand-gray mb-1">
-                      {lang === "ar" ? "الموقع" : "location"}
+                      {lang === "ar" ? "مصر" : "EGYPT"}
                     </h4>
-                    <p className="text-brand-gray/70">
-                      {lang === "ar"
-                        ? "الرياض, المملكة العربية السعودية"
-                        : "Riyadh - Saudi Arabia"}
-                      <br />
-                      {lang === "ar" ? "القاهرة, مصر" : "Cairo - Egypt"}
+                    <p
+                      className="text-brand-gray/70"
+                      style={{ direction: "ltr" }}
+                    >
+                      {lang === "ar" ? "القاهرة" : "Cairo"}
                     </p>
                   </div>
                 </div>
@@ -412,6 +436,15 @@ function ContactPage({ lang }) {
                     aria-label="Instagram"
                   >
                     <FaInstagram className="text-xl" />
+                  </a>
+                  <a
+                    href="https://www.snapchat.com/@brandexco?share_id=icCg9DkjGnI&locale=ar-EG"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-lg  flex items-center justify-center  hover:text-black transition-colors cursor-pointer"
+                    aria-label="Snapchat"
+                  >
+                    <FaSnapchatGhost className="text-xl" />
                   </a>
                   <a
                     href="https://x.com/brandexcoagency"
