@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   FiSmartphone,
@@ -21,8 +21,25 @@ import SEOWrapper from "./SEOWrapper.jsx";
 import Breadcrumbs from "./Breadcrumbs.jsx";
 
 function ServicesPage({ lang }) {
+  // Handle scrolling to specific service section when page loads with hash
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      // Remove the # from hash
+      const sectionId = hash.substring(1);
+      // Wait a bit for the page to render, then scroll to the section
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  }, []);
+
   const serviceCategories = [
     {
+      id: "creative-design",
       title: lang === "ar" ? "التصميم الإبداعي" : "Creative Design",
       subtitle: lang === "ar" ? "التصميم الإبداعي" : "Creative Design",
       services: [
@@ -70,6 +87,7 @@ function ServicesPage({ lang }) {
       ],
     },
     {
+      id: "web-solutions",
       title: lang === "ar" ? "حلول الويب" : "Web Solutions",
       subtitle: lang === "ar" ? "حلول الويب" : "Web Solutions",
       services: [
@@ -93,9 +111,21 @@ function ServicesPage({ lang }) {
               : "Fully integrated and secure e-commerce stores",
           icon: <FiShoppingCart className="text-4xl" />,
         },
+        {
+          title:
+            lang === "ar"
+              ? "تطوير تطبيقات الهاتف المحمول"
+              : "Mobile App Development",
+          description:
+            lang === "ar"
+              ? "تطبيقات iOS و Android"
+              : "iOS and Android applications",
+          icon: <FiSmartphone className="text-4xl" />,
+        },
       ],
     },
     {
+      id: "digital-marketing",
       title: lang === "ar" ? "التسويق الرقمي" : "Digital Marketing",
       subtitle: lang === "ar" ? "التسويق الرقمي" : "Digital Marketing",
       services: [
@@ -130,23 +160,13 @@ function ServicesPage({ lang }) {
               : "Targeted paid advertising",
           icon: <FiDollarSign className="text-4xl" />,
         },
-        {
-          title:
-            lang === "ar"
-              ? "تطوير تطبيقات الهاتف المحمول"
-              : "Mobile App Development",
-          description:
-            lang === "ar"
-              ? "تطبيقات iOS و Android"
-              : "iOS and Android applications",
-          icon: <FiSmartphone className="text-4xl" />,
-        },
       ],
     },
     {
-      title: lang === "ar" ? "الاستشارات التسويقية" : "Marketing Consultancy",
+      id: "brand-strategy",
+      title: lang === "ar" ? "استراتيجية العلامة التجارية" : "Brand Strategy",
       subtitle:
-        lang === "ar" ? "الاستشارات التسويقية" : "Marketing Consultancy",
+        lang === "ar" ? "استراتيجية العلامة التجارية" : "Brand Strategy",
       services: [
         {
           title:
@@ -219,7 +239,7 @@ function ServicesPage({ lang }) {
           </div>
 
           {serviceCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="mb-20">
+            <div key={categoryIndex} id={category.id} className="mb-20">
               <div className="text-center mb-12">
                 <h2 className="text-3xl sm:text-4xl font-bold text-brand-gray mb-4">
                   {category.title}

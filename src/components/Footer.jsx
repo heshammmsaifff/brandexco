@@ -17,19 +17,19 @@ function Footer({ lang }) {
     services: [
       {
         name: lang === "ar" ? "التصميم الإبداعي" : "Creative Design",
-        path: "/services",
+        path: "/services#creative-design",
       },
       {
         name: lang === "ar" ? "حلول الويب" : "Web Solutions",
-        path: "/services",
+        path: "/services#web-solutions",
       },
       {
         name: lang === "ar" ? "التسويق الرقمي" : "Digital Marketing",
-        path: "/services",
+        path: "/services#digital-marketing",
       },
       {
         name: lang === "ar" ? "استراتيجية العلامة التجارية" : "Brand Strategy",
-        path: "/services",
+        path: "/services#brand-strategy",
       },
     ],
     company: [
@@ -80,10 +80,18 @@ function Footer({ lang }) {
   const handleLinkClick = (path) => {
     // If it's a hash link, scroll to the section
     if (path.includes("#")) {
-      const hash = path.split("#")[1];
-      const element = document.getElementById(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+      const [basePath, hash] = path.split("#");
+
+      // If we're navigating to services page with a hash
+      if (basePath === "/services") {
+        // Navigate to services page first, then scroll to section
+        window.location.href = path;
+      } else {
+        // For same page hash links, scroll to the section
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
     } else {
       // Scroll to top when navigating to different pages
