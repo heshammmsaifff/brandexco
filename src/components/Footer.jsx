@@ -277,15 +277,17 @@ function Footer({ lang }) {
           </div>
           <div className="flex items-center gap-6 text-sm">
             <Link
-              to="/"
-              onClick={() => handleLinkClick("/")}
+              to="/privacy-policy"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-brand-gray/70 hover:text-brand-primary transition-colors"
             >
               {lang === "ar" ? "سياسة الخصوصية" : "Privacy Policy"}
             </Link>
             <Link
-              to="/"
-              onClick={() => handleLinkClick("/")}
+              to="/terms-of-service"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-brand-gray/70 hover:text-brand-primary transition-colors"
             >
               {lang === "ar" ? "شروط الاستخدام" : "Terms of Service"}

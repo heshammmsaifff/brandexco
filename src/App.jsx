@@ -16,6 +16,8 @@ import ContactPage from "./components/ContactPage.jsx";
 import ContactForm from "./components/ContactForm.jsx";
 import AboutUs from "./components/AboutUs.jsx";
 import Footer from "./components/Footer.jsx";
+import PrivacyPolicy from "./components/PrivacyPolicy.jsx";
+import TermsOfService from "./components/TermsOfService.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import FloatingButtons from "./components/FloatingButtons.jsx";
 import SEOWrapper from "./components/SEOWrapper.jsx";
@@ -360,6 +362,14 @@ function AppContent() {
           />
           <Route path="/services" element={<ServicesPage lang={lang} />} />
           <Route path="/contact" element={<ContactPage lang={lang} />} />
+          <Route
+            path="/privacy-policy"
+            element={<PrivacyPolicy lang={lang} />}
+          />
+          <Route
+            path="/terms-of-service"
+            element={<TermsOfService lang={lang} />}
+          />
         </Routes>
       </main>
       <Footer lang={lang} />
