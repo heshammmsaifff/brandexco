@@ -396,3 +396,4 @@ function TermsOfService({ lang }) {
 }
 
 export default TermsOfService;
+

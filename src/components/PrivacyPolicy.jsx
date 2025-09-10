@@ -308,3 +308,4 @@ function PrivacyPolicy({ lang }) {
 }
 
 export default PrivacyPolicy;
+

@@ -21,8 +21,8 @@ function AboutUs({ lang }) {
       <SEOWrapper
         title={
           lang === "ar"
-            ? "BrandExCo | وكالة تسويق رقمي متخصصة في السعودية"
-            : "BrandExCo | Professional Digital Marketing Agency in Saudi Arabia"
+            ? "BrandExCo | وكالة تسويق رقمي متخصصة"
+            : "BrandExCo | Professional Digital Marketing Agency"
         }
         description={
           lang === "ar"
