@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  FiTwitter,
   FiInstagram,
   FiFacebook,
   FiMail,
@@ -9,6 +8,7 @@ import {
   FiMapPin,
 } from "react-icons/fi";
 import { FaTiktok, FaSnapchatGhost } from "react-icons/fa";
+import { SiX } from "react-icons/si";
 
 function Footer({ lang }) {
   const currentYear = new Date().getFullYear();
@@ -61,8 +61,8 @@ function Footer({ lang }) {
       url: "https://www.instagram.com/brandexco.agency/",
     },
     {
-      name: "Twitter",
-      icon: <FiTwitter />,
+      name: "X",
+      icon: <SiX />,
       url: "https://x.com/brandexcoagency",
     },
     {

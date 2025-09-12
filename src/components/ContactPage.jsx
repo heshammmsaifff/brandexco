@@ -4,10 +4,10 @@ import { initEmailJS, sendEmail } from "../config/emailjs";
 import {
   FaFacebook,
   FaInstagram,
-  FaTwitter,
   FaTiktok,
   FaSnapchatGhost,
 } from "react-icons/fa";
+import { SiX } from "react-icons/si";
 import SEOWrapper from "./SEOWrapper.jsx";
 import Breadcrumbs from "./Breadcrumbs.jsx";
 
@@ -451,9 +451,9 @@ function ContactPage({ lang }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-lg bg-brand-green-1/20 flex items-center justify-center hover:bg-brand-green-1 hover:text-black transition-colors cursor-pointer"
-                    aria-label="Twitter/X"
+                    aria-label="X"
                   >
-                    <FaTwitter className="text-xl" />
+                    <SiX className="text-xl" />
                   </a>
                   <a
                     href="https://www.tiktok.com/@brandexco"
