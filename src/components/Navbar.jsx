@@ -13,6 +13,7 @@ function Navbar({ lang, setLang, labels }) {
       path: "/#about",
     },
     { key: "services", label: labels.services, path: "/services" },
+    { key: "blog", label: lang === "ar" ? "المدونة" : "Blog", path: "/blog" }, // ✅ إضافة رابط المدونة
     { key: "contact", label: labels.contact, path: "/contact" },
   ];
 
@@ -21,7 +22,6 @@ function Navbar({ lang, setLang, labels }) {
   const closeMenu = () => setIsOpen(false);
 
   const handleNavClick = (path) => {
-    // If it's a hash link, scroll to the section
     if (path.includes("#")) {
       const hash = path.split("#")[1];
       const element = document.getElementById(hash);
@@ -29,12 +29,7 @@ function Navbar({ lang, setLang, labels }) {
         element.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      // Scroll to top when navigating to different pages
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth",
-      });
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     }
     closeMenu();
   };
@@ -56,6 +51,7 @@ function Navbar({ lang, setLang, labels }) {
       }`}
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+        {/* Logo */}
         <Link to="/" className="flex items-center group">
           <div className="relative">
             <img
@@ -66,15 +62,15 @@ function Navbar({ lang, setLang, labels }) {
               loading="eager"
               decoding="async"
             />
-            {/* تأثير توهج خفيف */}
             <div className="absolute inset-0 bg-brand-primary/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 logo-glow" />
-            {/* تأثير إضافي للشعار */}
             <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary/0 via-brand-primary/10 to-brand-primary/0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
           </div>
           <span className="font-extrabold tracking-tight text-brand-gray transition-colors group-hover:text-brand-primary text-lg">
             BRANDEXCO
           </span>
         </Link>
+
+        {/* Desktop menu */}
         <ul className="hidden md:flex items-center gap-12">
           {navItems.map((item) => (
             <li key={item.key} className="animate-in">
@@ -95,6 +91,8 @@ function Navbar({ lang, setLang, labels }) {
             </li>
           ))}
         </ul>
+
+        {/* Language toggle + Mobile menu button */}
         <div className="flex items-center gap-3">
           <button
             onClick={handleToggle}
@@ -115,6 +113,7 @@ function Navbar({ lang, setLang, labels }) {
           </button>
         </div>
       </nav>
+
       {/* Mobile menu */}
       <div
         id="mobile-menu"

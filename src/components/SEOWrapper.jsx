@@ -1,6 +1,6 @@
 import React from "react";
 import SEO from "./SEO.jsx";
-import SchemaMarkup from "./SchemaMarkup.jsx";
+// import SchemaMarkup from "./SchemaMarkup.jsx";
 
 const SEOWrapper = ({
   title,
@@ -26,9 +26,9 @@ const SEOWrapper = ({
         lang={lang}
         structuredData={structuredData}
       />
-      {schemaType && schemaData && (
+      {/* {schemaType && schemaData && (
         <SchemaMarkup type={schemaType} data={schemaData} />
-      )}
+      )} */}
     </>
   );
 };
