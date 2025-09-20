@@ -20,15 +20,20 @@ import PrivacyPolicy from "./components/PrivacyPolicy.jsx";
 import TermsOfService from "./components/TermsOfService.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import FloatingButtons from "./components/FloatingButtons.jsx";
-// import SEOWrapper from "./components/SEOWrapper.jsx";
-// import Breadcrumbs from "./components/Breadcrumbs.jsx";
 import Blog from "./pages/Blog";
 import Post from "./pages/Post";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import HeroSlider from "./components/HeroSlider.jsx";
 
 function HomePage({ lang, t, isRTL }) {
   return (
     <>
       <Hero labels={t.hero} isRTL={isRTL} />
+
+      {/* <HeroSlider /> */}
 
       {/* CardSwap Section */}
       <section className="relative py-20 bg-brand-dark">
