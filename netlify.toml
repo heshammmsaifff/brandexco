@@ -7,8 +7,10 @@
 
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "https://service.prerender.io/https://brandexco.com/:splat"
   status = 200
+  force = true
+  conditions = { UserAgent = ["googlebot", "bingbot", "yandex", "baiduspider", "duckduckbot"] }
 
 [[headers]]
   for = "/*"
