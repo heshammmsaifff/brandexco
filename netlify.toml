@@ -10,7 +10,7 @@
   to = "https://service.prerender.io/:splat"
   status = 200
   force = true
-  conditions = { User-Agent = "Googlebot|Bingbot|Yahoo|DuckDuckBot|Yandex" }
+  conditions = { User-Agent = "(?i)Googlebot|Bingbot|Yahoo|DuckDuckBot|Yandex" }
 
 [[headers]]
   for = "/*"
