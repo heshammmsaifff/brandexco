@@ -5,13 +5,15 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# ----- Redirect bots to Prerender -----
 [[redirects]]
   from = "/*"
   to = "https://service.prerender.io/https://brandexco.com/:splat"
   status = 200
   force = true
-  conditions = { UserAgent = ["Googlebot", "Bingbot", "Yahoo", "DuckDuckBot", "Yandex"] }
+  conditions = { UserAgent = "(?i)Googlebot|Bingbot|Yahoo|DuckDuckBot|Yandex" }
 
+# ----- Global headers -----
 [[headers]]
   for = "/*"
   [headers.values]
