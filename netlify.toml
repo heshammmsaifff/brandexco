@@ -7,10 +7,11 @@
 
 [[redirects]]
   from = "/*"
-  to = "https://service.prerender.io/:splat"
+  to = "https://service.prerender.io/https://brandexco.com/:splat"
   status = 200
   force = true
-  conditions = { User-Agent = "(?i)Googlebot|Bingbot|Yahoo|DuckDuckBot|Yandex" }
+  conditions = { UserAgent = ["Googlebot", "Bingbot", "Yahoo", "DuckDuckBot", "Yandex"] }
+  headers = { "X-Prerender-Token" = "eP5ks6jBYCLP68HHIEub" }
 
 [[headers]]
   for = "/*"
@@ -19,8 +20,8 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    X-Prerender-Token = "eP5ks6jBYCLP68HHIEub"
 
+# ---- Cache static assets ----
 [[headers]]
   for = "/assets/*"
   [headers.values]
