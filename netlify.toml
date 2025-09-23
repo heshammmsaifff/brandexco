@@ -7,12 +7,10 @@
 
 [[redirects]]
   from = "/*"
-  to = "https://service.prerender.io/https://brandexco.com/:splat"
+  to = "https://service.prerender.io/:splat"
   status = 200
   force = true
-  conditions = { UserAgent = ["Googlebot", "Bingbot", "Yahoo", "DuckDuckBot", "Yandex"] }
-  headers = { "X-Prerender-Token" = ":PRERENDER_TOKEN" }
-
+  conditions = { User-Agent = "Googlebot|Bingbot|Yahoo|DuckDuckBot|Yandex" }
 
 [[headers]]
   for = "/*"
