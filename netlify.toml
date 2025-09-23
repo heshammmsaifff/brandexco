@@ -5,14 +5,15 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# ---- Prerender redirect for bots ----
 [[redirects]]
   from = "/*"
   to = "https://service.prerender.io/https://brandexco.com/:splat"
   status = 200
   force = true
-  conditions = { UserAgent = ["Googlebot", "Bingbot", "Yahoo", "DuckDuckBot", "Yandex"] }
-  headers = { "X-Prerender-Token" = "eP5ks6jBYCLP68HHIEub" }
+  conditions = { UserAgent = "(?i)Googlebot|Bingbot|Yahoo|DuckDuckBot|Yandex" }
 
+# ---- Security + Prerender token header ----
 [[headers]]
   for = "/*"
   [headers.values]
@@ -20,6 +21,7 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Prerender-Token = "eP5ks6jBYCLP68HHIEub"
 
 # ---- Cache static assets ----
 [[headers]]
