@@ -35,9 +35,12 @@ function Hero({ labels, isRTL }) {
         <div className="order-1">
           <div className="relative">
             {!imageError ? (
-              <img
-                src="/B.webp"
+              <Image
+                src="/B.gif"
                 alt="Content Marketing Services"
+                loading="eager"
+                width={600}
+                height={300}
                 className={`w-full h-auto rounded-xl shadow-2xl transition-opacity duration-500 ${
                   imageLoaded ? "opacity-100" : "opacity-0"
                 }`}
