@@ -27,9 +27,28 @@ export default function Post({ post }) {
   );
 }
 
-// SSR
-export async function getServerSideProps(context) {
-  const { slug } = context.params;
+// Static paths
+export async function getStaticPaths() {
+  const { data: posts, error } = await supabase
+    .from("posts")
+    .select("slug")
+    .eq("lang", "ar");
+
+  if (error) {
+    console.error(error.message);
+    return { paths: [], fallback: false };
+  }
+
+  const paths = posts.map((post) => ({
+    params: { slug: post.slug },
+  }));
+
+  return { paths, fallback: false };
+}
+
+// Static props
+export async function getStaticProps({ params }) {
+  const { slug } = params;
 
   const { data: post, error } = await supabase
     .from("posts")
