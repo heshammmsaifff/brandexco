@@ -1,134 +1,36 @@
-# BrandExCo - وكالة التسويق الرقمي
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-موقع إلكتروني احترافي لوكالة تسويق رقمي متخصصة في السعودية، يقدم خدمات SEO، التسويق عبر وسائل التواصل الاجتماعي، وتطوير المواقع الإلكترونية.
+## Getting Started
 
-## 🚀 المميزات
-
-- **تصميم متجاوب**: يعمل على جميع الأجهزة والشاشات
-- **تحسين محركات البحث (SEO)**: محسن بالكامل للظهور في نتائج البحث
-- **أداء عالي**: سريع التحميل مع تحسينات الأداء
-- **واجهة عربية**: مصممة خصيصاً للمستخدمين العرب
-- **PWA**: تطبيق ويب تقدمي يمكن تثبيته على الأجهزة
-
-## 📋 متطلبات SEO المطبقة
-
-### 1. Meta Tags محسنة
-
-- عناوين ووصف مخصص لكل صفحة
-- Open Graph tags للشبكات الاجتماعية
-- Twitter Cards
-- Canonical URLs
-- Hreflang tags للغات المتعددة
-
-### 2. البيانات المنظمة (Structured Data)
-
-- Organization Schema
-- WebSite Schema
-- Service Schema
-- BreadcrumbList Schema
-- FAQ Schema
-
-### 3. ملفات SEO الأساسية
-
-- `sitemap.xml` - خريطة الموقع
-- `robots.txt` - توجيهات محركات البحث
-- `manifest.json` - ملف التطبيق التقدمي
-
-### 4. تحسينات الأداء
-
-- ضغط GZIP
-- تخزين مؤقت للمتصفح
-- تحسين الصور
-- Lazy loading
-
-## 🛠️ التقنيات المستخدمة
-
-- **Frontend**: React 19, Vite
-- **Styling**: Tailwind CSS
-- **Routing**: React Router DOM
-- **SEO**: React Helmet Async
-- **Animations**: GSAP, Three.js
-- **Icons**: React Icons
-
-## 📦 التثبيت والتشغيل
+First, run the development server:
 
 ```bash
-# تثبيت التبعيات
-npm install
-
-# تشغيل في وضع التطوير
 npm run dev
-
-# بناء للمنتج
-npm run build
-
-# معاينة البناء
-npm run preview
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## 🔧 إعدادات SEO
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### 1. تحديث معلومات الموقع
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-قم بتحديث المعلومات التالية في الملفات المناسبة:
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-- `index.html`: عنوان الموقع والوصف
-- `sitemap.xml`: روابط الصفحات
-- `manifest.json`: معلومات التطبيق
+## Learn More
 
-### 2. إضافة محتوى SEO
+To learn more about Next.js, take a look at the following resources:
 
-- استخدم مكون `SEO` في كل صفحة
-- أضف `SchemaMarkup` للبيانات المنظمة
-- استخدم `Breadcrumbs` للتنقل
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-### 3. تحسين الصور
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-- أضف `alt` tags لجميع الصور
-- استخدم تنسيقات حديثة (WebP)
-- ضغط الصور قبل الرفع
+## Deploy on Vercel
 
-## 📊 مراقبة الأداء
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### أدوات SEO الموصى بها:
-
-- Google Search Console
-- Google Analytics
-- Google PageSpeed Insights
-- GTmetrix
-- Screaming Frog
-
-### مؤشرات الأداء الرئيسية:
-
-- Core Web Vitals
-- First Contentful Paint (FCP)
-- Largest Contentful Paint (LCP)
-- Cumulative Layout Shift (CLS)
-
-## 🌐 النشر
-
-### متطلبات الاستضافة:
-
-- دعم HTTPS
-- ضغط GZIP
-- تخزين مؤقت للمتصفح
-- دعم React Router (SPA)
-
-### خطوات النشر:
-
-1. بناء المشروع: `npm run build`
-2. رفع محتويات مجلد `dist`
-3. تكوين خادم الويب (Apache/Nginx)
-4. إضافة ملف `.htaccess`
-5. إرسال sitemap إلى Google Search Console
-
-## 📞 الدعم
-
-للمساعدة أو الاستفسارات، يرجى التواصل معنا عبر:
-
-- البريد الإلكتروني: info@brandexco.com
-- الهاتف: +966-50-000-0000
-
-## 📄 الترخيص
-
-هذا المشروع مرخص تحت رخصة MIT.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
