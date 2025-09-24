@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Head from "next/head";
-import { supabase } from "../../supabaseClient";
+import { supabase } from "../supabaseClient";
 
 const Post = ({ currentLang }) => {
   const params = useParams();
