@@ -116,6 +116,55 @@ function MyApp({ Component, pageProps }) {
         />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* 🧭 Website Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "BRANDEXCO",
+              url: "https://brandexco.com/",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://brandexco.com/?s={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
+
+        {/* 🧩 Breadcrumbs Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: lang === "ar" ? "الرئيسية" : "Home",
+                  item: "https://brandexco.com/",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: lang === "ar" ? "الخدمات" : "Services",
+                  item: "https://brandexco.com/servicespage",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: lang === "ar" ? "تواصل معنا" : "Contact",
+                  item: "https://brandexco.com/contactpage",
+                },
+              ],
+            }),
+          }}
+        />
       </Head>
 
       <div dir={dir} className="min-h-screen flex flex-col relative">
