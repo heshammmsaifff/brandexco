@@ -113,7 +113,7 @@ export default function HomePage({ lang, t, isRTL }) {
 
               <div className="mt-10">
                 <Link
-                  href="/contact"
+                  href="/contactpage"
                   className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-brand-primary text-white font-semibold hover:bg-brand-secondary transition-colors btn-shimmer"
                 >
                   {lang === "ar"
@@ -214,7 +214,7 @@ export default function HomePage({ lang, t, isRTL }) {
           {/* More Services Button */}
           <div className="text-center mt-16">
             <Link
-              href="/services"
+              href="/servicespage"
               className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-brand-black/80 border border-brand-gray/30 text-brand-gray font-semibold hover:bg-brand-primary hover:text-white hover:border-brand-primary transition-all duration-300 btn-shimmer group"
             >
               <span className="mr-3 group-hover:mr-4 transition-all duration-300">
