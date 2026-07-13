@@ -1,9 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiCheckCircle, FiAlertCircle, FiX } from "react-icons/fi";
 
 // Animated toast for form feedback. `status` is "success" | "error" | null.
 export default function Toast({ status, lang = "ar", onClose, duration = 5000 }) {
+  // Render into <body> via a portal so an ancestor `transform` (e.g. the
+  // page-transition motion.div in _app) can't turn our fixed positioning
+  // into a containing block and push the toast off-screen.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   useEffect(() => {
     if (!status) return;
     const t = setTimeout(() => onClose?.(), duration);
@@ -23,7 +30,9 @@ export default function Toast({ status, lang = "ar", onClose, duration = 5000 })
         : "Something went wrong. Please try again.",
   };
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {status && (
         <motion.div
@@ -78,6 +87,7 @@ export default function Toast({ status, lang = "ar", onClose, duration = 5000 })
           </div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }
