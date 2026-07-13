@@ -147,18 +147,23 @@ function BlogCard({ post, lang }) {
 }
 
 export async function getStaticProps() {
-  const { data, error } = await supabase
-    .from("posts")
-    .select(
-      "id, slug, category, title_ar, title_en, excerpt_ar, excerpt_en, content_ar, content_en, cover_image, created_at"
-    )
-    .eq("published", true)
-    .order("created_at", { ascending: false });
-
-  if (error) console.error("blog getStaticProps:", error.message);
+  let posts = [];
+  try {
+    const { data, error } = await supabase
+      .from("posts")
+      .select(
+        "id, slug, category, title_ar, title_en, excerpt_ar, excerpt_en, content_ar, content_en, cover_image, created_at"
+      )
+      .eq("published", true)
+      .order("created_at", { ascending: false });
+    if (error) console.error("blog getStaticProps:", error.message);
+    posts = data || [];
+  } catch (e) {
+    console.error("blog getStaticProps failed:", e?.message || e);
+  }
 
   return {
-    props: { posts: data || [] },
+    props: { posts },
     revalidate: 60,
   };
 }

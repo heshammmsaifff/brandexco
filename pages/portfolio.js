@@ -150,18 +150,23 @@ function ProjectCard({ project, lang }) {
 }
 
 export async function getStaticProps() {
-  const { data, error } = await supabase
-    .from("projects")
-    .select(
-      "id, slug, category, title_ar, title_en, description_ar, description_en, images, created_at"
-    )
-    .eq("published", true)
-    .order("created_at", { ascending: false });
-
-  if (error) console.error("portfolio getStaticProps:", error.message);
+  let projects = [];
+  try {
+    const { data, error } = await supabase
+      .from("projects")
+      .select(
+        "id, slug, category, title_ar, title_en, description_ar, description_en, images, created_at"
+      )
+      .eq("published", true)
+      .order("created_at", { ascending: false });
+    if (error) console.error("portfolio getStaticProps:", error.message);
+    projects = data || [];
+  } catch (e) {
+    console.error("portfolio getStaticProps failed:", e?.message || e);
+  }
 
   return {
-    props: { projects: data || [] },
+    props: { projects },
     revalidate: 60,
   };
 }

@@ -115,10 +115,15 @@ export default function BlogPost({ post, lang = "ar" }) {
 }
 
 export async function getStaticPaths() {
-  const { data } = await supabase
-    .from("posts")
-    .select("slug")
-    .eq("published", true);
+  let data = [];
+  try {
+    ({ data } = await supabase
+      .from("posts")
+      .select("slug")
+      .eq("published", true));
+  } catch (e) {
+    console.error("blog getStaticPaths failed:", e?.message || e);
+  }
 
   return {
     paths: (data || []).map((p) => ({ params: { slug: p.slug } })),
@@ -127,12 +132,17 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { data: post } = await supabase
-    .from("posts")
-    .select("*")
-    .eq("slug", params.slug)
-    .eq("published", true)
-    .maybeSingle();
+  let post = null;
+  try {
+    ({ data: post } = await supabase
+      .from("posts")
+      .select("*")
+      .eq("slug", params.slug)
+      .eq("published", true)
+      .maybeSingle());
+  } catch (e) {
+    console.error("blog [slug] getStaticProps failed:", e?.message || e);
+  }
 
   if (!post) {
     return { notFound: true, revalidate: 30 };

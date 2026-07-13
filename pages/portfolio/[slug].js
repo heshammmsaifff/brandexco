@@ -113,10 +113,15 @@ export default function ProjectDetail({ project, lang = "ar" }) {
 }
 
 export async function getStaticPaths() {
-  const { data } = await supabase
-    .from("projects")
-    .select("slug")
-    .eq("published", true);
+  let data = [];
+  try {
+    ({ data } = await supabase
+      .from("projects")
+      .select("slug")
+      .eq("published", true));
+  } catch (e) {
+    console.error("portfolio getStaticPaths failed:", e?.message || e);
+  }
 
   return {
     paths: (data || []).map((p) => ({ params: { slug: p.slug } })),
@@ -125,12 +130,17 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { data: project } = await supabase
-    .from("projects")
-    .select("*")
-    .eq("slug", params.slug)
-    .eq("published", true)
-    .maybeSingle();
+  let project = null;
+  try {
+    ({ data: project } = await supabase
+      .from("projects")
+      .select("*")
+      .eq("slug", params.slug)
+      .eq("published", true)
+      .maybeSingle());
+  } catch (e) {
+    console.error("portfolio [slug] getStaticProps failed:", e?.message || e);
+  }
 
   if (!project) {
     return { notFound: true, revalidate: 30 };

@@ -21,16 +21,21 @@ function urlEntry({ loc, lastmod, changefreq, priority }) {
 }
 
 export async function getServerSideProps({ res }) {
-  const [{ data: posts }, { data: projects }] = await Promise.all([
-    supabase
-      .from("posts")
-      .select("slug, updated_at")
-      .eq("published", true),
-    supabase
-      .from("projects")
-      .select("slug, updated_at")
-      .eq("published", true),
-  ]);
+  let posts = [];
+  let projects = [];
+  try {
+    const [postsRes, projectsRes] = await Promise.all([
+      supabase.from("posts").select("slug, updated_at").eq("published", true),
+      supabase
+        .from("projects")
+        .select("slug, updated_at")
+        .eq("published", true),
+    ]);
+    posts = postsRes.data || [];
+    projects = projectsRes.data || [];
+  } catch (e) {
+    console.error("sitemap fetch failed:", e?.message || e);
+  }
 
   const entries = [
     ...STATIC_ROUTES.map((r) =>
