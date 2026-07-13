@@ -11,6 +11,11 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://brandexco.com";
 export default function Portfolio({ projects = [], lang = "ar" }) {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
+  // Only show filter buttons for categories that actually have projects.
+  const availableCategories = CATEGORIES.filter((cat) =>
+    projects.some((p) => p.category === cat.key)
+  );
+
   const filtered =
     selectedCategory === "all"
       ? projects
@@ -59,7 +64,7 @@ export default function Portfolio({ projects = [], lang = "ar" }) {
             >
               {lang === "ar" ? "الكل" : "All"}
             </FilterButton>
-            {CATEGORIES.map((cat) => (
+            {availableCategories.map((cat) => (
               <FilterButton
                 key={cat.key}
                 active={selectedCategory === cat.key}

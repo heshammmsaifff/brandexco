@@ -11,6 +11,11 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://brandexco.com";
 export default function Blog({ posts = [], lang = "ar" }) {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
+  // Only show filter buttons for categories that actually have posts.
+  const availableCategories = CATEGORIES.filter((cat) =>
+    posts.some((post) => post.category === cat.key)
+  );
+
   const filteredPosts =
     selectedCategory === "all"
       ? posts
@@ -60,7 +65,7 @@ export default function Blog({ posts = [], lang = "ar" }) {
             >
               {lang === "ar" ? "الكل" : "All"}
             </FilterButton>
-            {CATEGORIES.map((cat) => (
+            {availableCategories.map((cat) => (
               <FilterButton
                 key={cat.key}
                 active={selectedCategory === cat.key}
