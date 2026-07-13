@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }) {
     const dict = {
       ar: {
         nav: {
-          home: "الرئيسية",
+          home: "الرئيسيه",
           services: "الخدمات",
           portfolio: "الأعمال",
           contact: "تواصل",
