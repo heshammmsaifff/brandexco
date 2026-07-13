@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { AnimatePresence, motion } from "framer-motion";
@@ -15,6 +15,25 @@ function MyApp({ Component, pageProps }) {
   const dir = isRTL ? "rtl" : "ltr";
 
   const router = useRouter();
+  const isAdmin = router.pathname.startsWith("/admin");
+
+  // Restore the visitor's preferred language and keep <html> in sync.
+  useEffect(() => {
+    const saved =
+      typeof window !== "undefined" ? localStorage.getItem("lang") : null;
+    if (saved === "ar" || saved === "en") setLang(saved);
+  }, []);
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    // The admin dashboard is Arabic-only (RTL); the public site follows `lang`.
+    const activeLang = isAdmin ? "ar" : lang;
+    document.documentElement.lang = activeLang;
+    document.documentElement.dir = activeLang === "ar" ? "rtl" : "ltr";
+    if (!isAdmin && typeof window !== "undefined") {
+      localStorage.setItem("lang", lang);
+    }
+  }, [lang, isAdmin]);
 
   // 🟢 القاموس كامل (ar / en)
   const t = useMemo(() => {
@@ -107,13 +126,19 @@ function MyApp({ Component, pageProps }) {
     setLangAnimKey((k) => k + 1);
   };
 
+  // Admin dashboard renders its own (Arabic-only) layout without the
+  // public navbar/footer/floating buttons.
+  if (isAdmin) {
+    return (
+      <div dir="rtl">
+        <Component {...pageProps} />
+      </div>
+    );
+  }
+
   return (
     <>
       <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Tajawal:wght@300;400;500;700&display=swap"
-          rel="stylesheet"
-        />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 

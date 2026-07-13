@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { initEmailJS, sendEmail } from "../config/emailjs";
+import React, { useState } from "react";
+import { supabase } from "../supabaseClient";
 
 function ContactForm({ lang }) {
   const [formData, setFormData] = useState({
@@ -14,11 +14,6 @@ function ContactForm({ lang }) {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-
-  useEffect(() => {
-    // Initialize EmailJS
-    initEmailJS();
-  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -33,22 +28,28 @@ function ContactForm({ lang }) {
     setSubmitStatus(null);
 
     try {
-      const result = await sendEmail(formData);
+      const { error } = await supabase.from("messages").insert([
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+        },
+      ]);
 
-      if (result.success) {
-        setSubmitStatus("success");
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          service: "",
-          message: "",
-        });
-      } else {
-        setSubmitStatus("error");
-      }
+      if (error) throw error;
+
+      setSubmitStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
+      });
     } catch (error) {
-      console.error("EmailJS Error:", error);
+      console.error("Contact submit error:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);

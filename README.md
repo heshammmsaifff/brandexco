@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# BRANDEXCO
 
-## Getting Started
+موقع وكالة براندكسكو للتسويق الرقمي — Next.js (Pages Router) + Supabase، ثنائي اللغة (عربي/إنجليزي) مع لوحة تحكم إدارية.
 
-First, run the development server:
+## المزايا
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **الموقع العام** ثنائي اللغة (AR/EN) مع حفظ اللغة المفضّلة.
+- **المدونة** و**معرض الأعمال (المشاريع)** يُدَاران من قاعدة البيانات ويُعرَضان بنظام SSG/ISR لأفضل فهرسة في محركات البحث.
+- **لوحة تحكم إدارية** (`/admin`) بالعربية فقط، محمية بنظام مصادقة كامل (Supabase Auth) مخصّص للأدمن.
+- **نموذج تواصل** يحفظ الرسائل مباشرة في قاعدة البيانات (بديل EmailJS) وقسم في اللوحة لاستقبالها.
+- **SEO**: خريطة موقع ديناميكية (`/sitemap.xml`)، وسوم meta/OG/canonical لكل صفحة، وبيانات منظّمة (Schema.org).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## التقنيات
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Next.js 15 (Pages Router) — SSR/ISR على Netlify عبر `@netlify/plugin-nextjs`.
+- Supabase (Postgres + Auth + Storage) مع سياسات RLS.
+- Tailwind CSS 4، Framer Motion، react-icons.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## الإعداد المحلي
 
-## Learn More
+1. أنشئ ملف `.env.local` (انظر `.env.example`):
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=...
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+   NEXT_PUBLIC_SITE_URL=https://brandexco.com
+   ```
+2. `npm install`
+3. `npm run dev` ثم افتح http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
+## إنشاء حساب الأدمن
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+لوحة التحكم متاحة فقط للحسابات المسجّلة في جدول `admins` (تمّت تهيئته بالبريد `heshamsaif856@gmail.com`).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+لإنشاء الحساب:
 
-## Deploy on Vercel
+1. من Supabase Dashboard → **Authentication → Users → Add user**.
+2. أدخل البريد `heshamsaif856@gmail.com` وكلمة مرور قوية، وفعّل **Auto Confirm**.
+3. سجّل الدخول عبر `/admin/login`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+لإضافة أدمن آخر لاحقاً: أضف بريده إلى جدول `admins` ثم أنشئ له مستخدماً في Authentication.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## النشر على Netlify
+
+اضبط متغيّرات البيئة في **Site settings → Environment variables**:
+
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `NEXT_PUBLIC_SITE_URL`
+
+يتكفّل `netlify.toml` + `@netlify/plugin-nextjs` بتشغيل SSR/ISR تلقائياً (`publish = ".next"`).
+
+## بنية قاعدة البيانات
+
+- `posts` — مقالات المدونة (حقول ثنائية اللغة، أقسام، SEO).
+- `projects` — المشاريع (حتى 5 صور، حقول ثنائية اللغة، أقسام).
+- `messages` — رسائل التواصل.
+- `admins` — قائمة البريد المصرّح له بالدخول.
+
+الأقسام الأربعة: `creative_design` / `web_solutions` / `digital_marketing` / `brand_strategy`.

@@ -18,9 +18,10 @@ function Navbar({ lang, setLang, labels }) {
     //   label: lang === "ar" ? "عن الشركة" : "About Us",
     //   path: "/#about",
     // },
-    { key: "services", label: labels.services, path: "/servicespage" }, // غير هنا
+    { key: "services", label: labels.services, path: "/servicespage" },
+    { key: "portfolio", label: labels.portfolio, path: "/portfolio" },
     { key: "blog", label: lang === "ar" ? "المدونة" : "Blog", path: "/blog" },
-    { key: "contact", label: labels.contact, path: "/contactpage" }, // غير هنا
+    { key: "contact", label: labels.contact, path: "/contactpage" },
   ];
 
   // باقي الكود يبقى كما هو...

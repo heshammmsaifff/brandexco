@@ -11,6 +11,10 @@ const Breadcrumbs = ({ lang = "ar" }) => {
 
   const breadcrumbMap = {
     services: lang === "ar" ? "الخدمات" : "Services",
+    servicespage: lang === "ar" ? "الخدمات" : "Services",
+    contactpage: lang === "ar" ? "تواصل معنا" : "Contact",
+    blog: lang === "ar" ? "المدونة" : "Blog",
+    portfolio: lang === "ar" ? "الأعمال" : "Work",
     about: lang === "ar" ? "من نحن" : "About Us",
     contact: lang === "ar" ? "تواصل معنا" : "Contact",
     seo: lang === "ar" ? "تحسين محركات البحث" : "SEO",

@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import { FiMail, FiSmartphone, FiMapPin } from "react-icons/fi";
-import { initEmailJS, sendEmail } from "../config/emailjs";
+import { supabase } from "../supabaseClient";
 import {
   FaFacebook,
   FaInstagram,
@@ -25,11 +25,6 @@ function ContactPage({ lang }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
-  useEffect(() => {
-    // Initialize EmailJS
-    initEmailJS();
-  }, []);
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -43,22 +38,28 @@ function ContactPage({ lang }) {
     setSubmitStatus(null);
 
     try {
-      const result = await sendEmail(formData);
+      const { error } = await supabase.from("messages").insert([
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+        },
+      ]);
 
-      if (result.success) {
-        setSubmitStatus("success");
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          service: "",
-          message: "",
-        });
-      } else {
-        setSubmitStatus("error");
-      }
+      if (error) throw error;
+
+      setSubmitStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
+      });
     } catch (error) {
-      console.error("EmailJS Error:", error);
+      console.error("Contact submit error:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
