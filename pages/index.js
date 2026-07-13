@@ -11,9 +11,12 @@ import CardSwap, { Card } from "../components/CardSwap";
 import Orb from "../components/Orb";
 import AboutUs from "../components/AboutUs";
 import ContactForm from "../components/ContactForm";
+import LatestProjects from "../components/LatestProjects";
+import LatestPosts from "../components/LatestPosts";
+import { supabase } from "../supabaseClient";
 import Head from "next/head";
 
-export default function HomePage({ lang, t, isRTL }) {
+export default function HomePage({ lang, t, isRTL, latestProjects = [], latestPosts = [] }) {
   const title =
     lang === "ar"
       ? "BrandExCo | وكالة تسويق رقمي متخصصة"
@@ -230,11 +233,51 @@ export default function HomePage({ lang, t, isRTL }) {
         </div>
       </section>
 
+      {/* Latest Projects Section */}
+      <LatestProjects projects={latestProjects} lang={lang} />
+
       {/* About Us Section */}
       <AboutUs lang={lang} />
+
+      {/* Latest Posts Section */}
+      <LatestPosts posts={latestPosts} lang={lang} />
 
       {/* Contact Form Section */}
       <ContactForm lang={lang} />
     </>
   );
+}
+
+export async function getStaticProps() {
+  let latestProjects = [];
+  let latestPosts = [];
+  try {
+    const [projectsRes, postsRes] = await Promise.all([
+      supabase
+        .from("projects")
+        .select(
+          "id, slug, category, title_ar, title_en, images, created_at"
+        )
+        .eq("published", true)
+        .order("created_at", { ascending: false })
+        .limit(4),
+      supabase
+        .from("posts")
+        .select(
+          "id, slug, category, title_ar, title_en, excerpt_ar, excerpt_en, content_ar, content_en, cover_image, created_at"
+        )
+        .eq("published", true)
+        .order("created_at", { ascending: false })
+        .limit(2),
+    ]);
+    latestProjects = projectsRes.data || [];
+    latestPosts = postsRes.data || [];
+  } catch (e) {
+    console.error("home getStaticProps failed:", e?.message || e);
+  }
+
+  return {
+    props: { latestProjects, latestPosts },
+    revalidate: 60,
+  };
 }

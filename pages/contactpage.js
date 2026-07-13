@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import { FiMail, FiSmartphone, FiMapPin } from "react-icons/fi";
 import { supabase } from "../supabaseClient";
+import Toast from "../components/Toast";
 import {
   FaFacebook,
   FaInstagram,
@@ -181,22 +182,11 @@ function ContactPage({ lang }) {
             </p>
           </div>
 
-          {/* Status Messages */}
-          {submitStatus === "success" && (
-            <div className="mb-8 p-6 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400 text-center text-lg">
-              {lang === "ar"
-                ? "تم إرسال رسالتك بنجاح! سنتواصل معك قريباً."
-                : "Your message has been sent successfully! We'll contact you soon."}
-            </div>
-          )}
-
-          {submitStatus === "error" && (
-            <div className="mb-8 p-6 bg-red-500/20 border border-red-500/50 rounded-lg text-red-400 text-center text-lg">
-              {lang === "ar"
-                ? "حدث خطأ في إرسال الرسالة. يرجى المحاولة مرة أخرى."
-                : "An error occurred while sending your message. Please try again."}
-            </div>
-          )}
+          <Toast
+            status={submitStatus}
+            lang={lang}
+            onClose={() => setSubmitStatus(null)}
+          />
 
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="grid md:grid-cols-2 gap-6">
